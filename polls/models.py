@@ -25,6 +25,9 @@ class Question(models.Model):
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
         # return self.pub_date <= now
 
+    published_recently.admin_order_field = 'pub_date'
+    published_recently.boolean = True
+    published_recently.short_description = 'Published recently?'
 
 
 @python_2_unicode_compatible # only if you need to support Python 2
