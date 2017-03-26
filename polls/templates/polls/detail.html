@@ -1,7 +1,13 @@
 {% extends 'base/layout.html' %}
 
+
 {% block content %}
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% if error_message %}
+  {% include 'polls:errors.html' %}
+  {% block error-message %}
+    <p><strong>{{ error_message }}</strong></p>
+  {% endblock %}
+{% endif %}
 
 <h3>{{ question.question_text }}</h3>
 <form action="{% url 'polls:vote' question.id %}" method="post">

@@ -1,16 +1,20 @@
 {% extends 'base/layout.html' %}
 
 {% block content %}
-<h3>{{ question.question_text }}</h3>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 
+<div class="alert alert-info" role="alert"><h3>{{ question.question_text }}</h3></div>
 <ul class="list-group">
-{% for choice in question.choice_set.all %}
+  {% for choice in question.choice_set.all %}
     <li class="list-group-item">
       <span class="badge">{{ choice.votes }} vote{{ choice.votes|pluralize }}</span>
       {{ choice.choice_text }}
     </li>
-{% endfor %}
+  {% endfor %}
 </ul>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+  <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+  </div>
+</div>
 {% endblock %}
