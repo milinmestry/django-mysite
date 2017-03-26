@@ -16,6 +16,8 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ('question_text', 'pub_date', 'published_recently')
     list_filter = ['pub_date']
     search_fields = ['question_text']
+    list_per_page = 25
+    # list_display_links = ('question_text',)
 
 admin.site.register(Question, QuestionAdmin)
 # admin.site.register(Choice)
