@@ -1,0 +1,14 @@
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="{% url 'sitehome:home'%}">Home</a></li>
+    <li><a href="{% url 'polls:index'%}">Polls</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <p class="navbar-text navbar-right">
+    {% if user.is_authenticated %}
+     Signed in as <a href="#" class="navbar-link">{{ user.get_username }}</a>,
+     <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+    {% else %}
+     <a href="{% url 'login'%}?next={{request.path}}">Login</a>
+    {% endif %}
+  </p>

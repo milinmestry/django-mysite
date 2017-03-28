@@ -44,7 +44,7 @@ def vote(request, qid):
         # redisplay the form
         return render(request, 'polls/detail.html', {
             'question': question,
-            'error_message': 'Please provide yout vote for this question.',
+            'error_message': ['Please provide yout vote for this question.'],
         })
     else:
         selected_choice.votes += 1

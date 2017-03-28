@@ -8,11 +8,24 @@
 {% block content %}
   <div class="row">
   {% if latest_question_list %}
-      <ul>
       {% for question in latest_question_list %}
-          <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+          <div class="poll-item pull-left">
+            <div class="alert alert-info" role="alert">
+              <h4><a class="alert-link" href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></h4>
+            </div>
+
+            <p>
+              <a href="{% url 'polls:detail' question.id %}" type="button" class="btn btn-primary btn-sm">Vote Now</a>
+              <a href="{% url 'polls:results' question.id %}" type="button" class="btn btn-default btn-sm">See Results</a>
+            </p>
+            <nav class="navbar navbar-default navbar-static-bottom">
+  <div class="container">
+    <a href="{% url 'polls:detail' question.id %}" type="button" class="btn btn-primary btn-sm">Vote Now</a>
+    <a href="{% url 'polls:results' question.id %}" type="button" class="btn btn-default btn-sm">See Results</a>
+  </div>
+</nav>
+          </div>
       {% endfor %}
-      </ul>
   {% else %}
       <p>No polls are available.</p>
   {% endif %}
