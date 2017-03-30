@@ -1,0 +1,27 @@
+li a {
+  color: #002FB2;
+}
+
+.poll-item {
+  position: relative;
+  border: 1px solid #999;
+  width: 250px;
+  height: 200px;
+  margin: 5px 10px;
+  background-color: #B2A331;
+}
+
+.poll-item .links-vote-results {
+  bottom: 0;
+  position: absolute;
+}
+
+.poll-item .col-md-6 {
+  background-color: #FFEB60;
+  width: 124px;
+  margin: 1px 0;
+}
+
+.links-vote-results .link-vote {
+  border-right: 1px solid #999;
+}

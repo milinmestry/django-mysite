@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 {% block stylesheet %}
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -10,20 +10,23 @@
   {% if latest_question_list %}
       {% for question in latest_question_list %}
           <div class="poll-item pull-left">
-            <div class="alert alert-info" role="alert">
+            <div class="alert alert-warning" role="alert">
               <h4><a class="alert-link" href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></h4>
             </div>
 
-            <p>
+            <div class="links-vote-results">
+              <div class="col-md-6 link-vote">
+                <a href="{% url 'polls:detail' question.id %}" class="btn">Vote Now</a>
+              </div>
+              <div class="col-md-6">
+                <a href="{% url 'polls:results' question.id %}" class="btn">See Results</a>
+              </div>
+            </div>
+
+            <!-- <div class="links-vote-results">
               <a href="{% url 'polls:detail' question.id %}" type="button" class="btn btn-primary btn-sm">Vote Now</a>
               <a href="{% url 'polls:results' question.id %}" type="button" class="btn btn-default btn-sm">See Results</a>
-            </p>
-            <nav class="navbar navbar-default navbar-static-bottom">
-  <div class="container">
-    <a href="{% url 'polls:detail' question.id %}" type="button" class="btn btn-primary btn-sm">Vote Now</a>
-    <a href="{% url 'polls:results' question.id %}" type="button" class="btn btn-default btn-sm">See Results</a>
-  </div>
-</nav>
+            </div> -->
           </div>
       {% endfor %}
   {% else %}
