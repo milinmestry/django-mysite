@@ -1,22 +1,37 @@
 {% extends 'base/layout.html' %}
 
+{% load staticfiles %}
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}" />
+{% endblock %}
 
 {% block content %}
-{% if error_message %}
-  {% include "base/errors.html" with errors=error_message %}
-{% endif %}
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    {% if error_message %}
+    {% include "base/errors.html" with errors=error_message %}
+    {% endif %}
 
-<h3>{{ question.question_text }}</h3>
-<form action="{% url 'polls:vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-  <div class="radio">
-    <label for="choice{{ forloop.counter }}">
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-    {{ choice.choice_text }}
-    </label>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ question.question_text }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{% url 'polls:vote' question.id %}" method="post">
+        {% csrf_token %}
+        {% for choice in question.choice_set.all %}
+          <div class="radio">
+            <label for="choice{{ forloop.counter }}">
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            {{ choice.choice_text }}
+            </label>
+          </div>
+        {% endfor %}
+        <!-- <input type="submit" value="Vote" /> -->
+        <button type="submit" class="btn btn-primary">Vote</button>
+        </form>
+      </div>
+    </div>
   </div>
-{% endfor %}
-<input type="submit" value="Vote" />
-</form>
+</div>
 {% endblock %}

@@ -4,11 +4,21 @@ li a {
 
 .poll-item {
   position: relative;
-  border: 1px solid #999;
+  border: 1px solid #5A5D5E;
   width: 250px;
   height: 200px;
   margin: 5px 10px;
-  background-color: #B2A331;
+  background-color: #DEF2FF;
+}
+
+.poll-question h4 {
+  font-weight: bold;
+  padding: 0 10px;
+  /*background-color: #95E1FF;*/
+}
+
+.poll-question a {
+  color: #5A5D5E;
 }
 
 .poll-item .links-vote-results {
@@ -17,11 +27,24 @@ li a {
 }
 
 .poll-item .col-md-6 {
-  background-color: #FFEB60;
+  background-color: #78838A;
   width: 124px;
-  margin: 1px 0;
+  margin: 0;
 }
 
 .links-vote-results .link-vote {
-  border-right: 1px solid #999;
+  border-right: 1px solid #DEF2FF;
+}
+
+.links-vote-results a {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.col-md-6 .alert-info {
+  margin: 0;
+}
+
+.panel-body .radio {
+  padding: 5px 0;
 }

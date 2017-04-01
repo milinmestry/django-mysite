@@ -1,10 +1,10 @@
 body {
-  background-color: #AFC4FF;
+  background-color: #95A2AB;
 }
 a {
   color: #002FB2;
 }
 a:hover {
-  color: green;
+  color: red;
   text-decoration: none;
 }

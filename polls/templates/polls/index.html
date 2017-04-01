@@ -10,8 +10,8 @@
   {% if latest_question_list %}
       {% for question in latest_question_list %}
           <div class="poll-item pull-left">
-            <div class="alert alert-warning" role="alert">
-              <h4><a class="alert-link" href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></h4>
+            <div class="poll-question">
+              <h4><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></h4>
             </div>
 
             <div class="links-vote-results">
